@@ -2,6 +2,8 @@ const config = require('../../config');
 const sendEmail = require('../../services/sendEmail.service');
 
 const Computer = require('../../models/computers/MarbustComputersComputer.model');
+const Maintenance = require('../../models/computers/MarbustComputersMaintenance.model');
+const MaintenanceType = require('../../models/computers/MarbustComputersMaintenanceType.model');
 
 
 exports.getMyComputers = async (req, res) => {
