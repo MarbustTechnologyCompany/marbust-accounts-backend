@@ -188,8 +188,31 @@ exports.login = async (req, res) => {
             });
         }
 
+        const crypto = require('crypto');
+
+        // Obtener la IP del usuario
+        const userIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        const publicIp = userIp.split(',')[0].trim();
+
+        // Obtener el User-Agent del usuario
+        const userAgent = req.headers['user-agent'];
+
+        // Generar un identificador único basado en IP y User-Agent
+        const uniqueIdentifier = crypto.createHash('sha256').update(publicIp + userAgent).digest('hex');
+        console.log('uniqueIdentifier', uniqueIdentifier);
+
         // Generate token
-        const token = jwt.sign({ userId: user.id, roleId: user.roleId },  config.jwtSecret, { expiresIn: '1h' });
+        const token = jwt.sign(
+            {
+                userId: user.id,
+                roleId: user.roleId,
+                uniqueId: uniqueIdentifier
+            },
+            config.jwtSecret,
+            {
+                expiresIn: '1h'
+            }
+        );
 
         const emailSubject = 'Notificación de inicio de sesión';
         const emailBody = `Tu cuenta ha iniciado sesión el <strong>${new Date().toLocaleString()}</strong> desde la dirección IP <strong>${req.ip}</strong>`;
