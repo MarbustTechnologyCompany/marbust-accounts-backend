@@ -9,11 +9,10 @@ const authMiddleware = require('./middleware/auth.middleware');
 const defaultRoutes = require('./modules/default/routes/default.routes');
 const userRoutes = require('./modules/users/routes/user.routes');
 const systemRoutes = require('./modules/users/routes/system.routes');
-const mbrelaxRoutes = require('./modules/mbrelax/routes/healthApp.routes');
-const mbrelaxTarjetasRoutes = require('./modules/mbrelax/routes/tarjetas.routes');
 const systemUpdateRoutes = require('./modules/system-updates/routes/systemUpdate.routes');
 const marbustEducationCoursesRoutes = require('./modules/education/routes/courses.routes');
 const marbustComputersMaintenanceRoutes = require('./modules/computers/routes/maintenance.routes');
+const mbrelaxRoutes = require('./modules/mbrelax/routes/mbrelax.routes');
 
 const app = express();
 // Setup Cors
@@ -27,7 +26,6 @@ app.use('/users',userRoutes);
 app.use('/system', authMiddleware, systemRoutes);
 app.use('/system-updates', authMiddleware, systemUpdateRoutes);
 app.use('/mbrelax', mbrelaxRoutes);
-app.use('/mbrelax/tarjetas', mbrelaxTarjetasRoutes);
 app.use('/marbust-education/courses', marbustEducationCoursesRoutes);
 app.use('/marbust-computers/maintenance', authMiddleware, marbustComputersMaintenanceRoutes);
 
