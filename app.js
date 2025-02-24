@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const sequelize = require('./util/database.util');
-const config = require('./config');
 const authMiddleware = require('./middleware/auth.middleware');
 
 // Import Routes
@@ -32,8 +32,8 @@ app.use('/marbust-computers/maintenance', authMiddleware, marbustComputersMainte
 // Sync Database and start server
 sequelize.sync({ alter: true })
     .then(() => {
-        app.listen(config.server.port, () => {
-            console.log(`Server is running on port ${config.server.port}`);
+        app.listen(process.env.SERVER_PORT, () => {
+            console.log(`Server is running on port ${process.env.SERVER_PORT}`);
         });
     })
     .catch(err => {

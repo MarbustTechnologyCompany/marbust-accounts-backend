@@ -1,6 +1,5 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('../config');
 const sendEmail = require('../services/sendEmail.service');
 
 const Role = require('../models/role.model');
@@ -43,11 +42,11 @@ exports.register = async (req, res) => {
 
         // Send OTP to user
         const emailSubject = `Creación de cuenta - Verificación OTP [${otpCode}]`;
-        const emailBody = `¡Bienvenido a <strong>${config.appName}</strong>! Tu cuenta ha sido creada exitosamente.
+        const emailBody = `¡Bienvenido a <strong>${process.env.APP_NAME}</strong>! Tu cuenta ha sido creada exitosamente.
         <br>
         Por favor verifica tu dirección de correo electrónico ingresando el siguiente código OTP: <strong>${otpCode}</strong> en la página de verificación.
         <br>
-        Link de verificación: <a href="${config.urls.frontend}/confirm-otp">Verificar OTP</a>
+        Link de verificación: <a href="${process.env.URLS_FRONTEND}/confirm-otp">Verificar OTP</a>
         `;
         await sendEmail(email, emailSubject, emailBody);
         res.status(201).json({ message: 'Usuario registrado con éxito' });
@@ -171,11 +170,11 @@ exports.login = async (req, res) => {
             }
             if (user.statusId === USER_STATUS.INACTIVE) {
                 const emailSubject = `Necesitas verificar tu correo electrónico`;
-                const emailBody = `¡Bienvenido a <strong>${config.appName}</strong>! Tu cuenta ha sido creada exitosamente.
+                const emailBody = `¡Bienvenido a <strong>${process.env.APP_NAME}</strong>! Tu cuenta ha sido creada exitosamente.
                 <br>
                 Por favor verifica tu dirección de correo electrónico ingresando el siguiente código OTP: <strong>${user.otpCode}</strong> en la página de verificación.
                 <br>
-                Link de verificación: <a href="${config.urls.frontend}/confirm-otp">Verificar OTP</a>
+                Link de verificación: <a href="${process.env.URLS_FRONTEND}/confirm-otp">Verificar OTP</a>
                 `;
                 await sendEmail(email, emailSubject, emailBody);
             }
@@ -208,7 +207,7 @@ exports.login = async (req, res) => {
                 roleId: user.roleId,
                 uniqueId: uniqueIdentifier
             },
-            config.jwtSecret,
+            process.env.JWT_SECRET,
             {
                 expiresIn: '1h'
             }

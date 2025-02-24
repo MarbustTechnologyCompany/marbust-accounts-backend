@@ -1,4 +1,3 @@
-const config = require('../config');
 const sendEmail = require('../services/sendEmail.service');
 
 const SystemUpdate = require('../models/systemUpdate.model');

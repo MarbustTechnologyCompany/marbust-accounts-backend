@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config');
 const crypto = require('crypto');
 
 module.exports = (req, res, next) => {
@@ -10,7 +9,7 @@ module.exports = (req, res, next) => {
     const token = authHeader.split(' ')[1];
     let decodedToken;
     try {
-        decodedToken = jwt.verify(token, config.jwtSecret);
+        decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     } catch (err) {
         return res.status(500).json({ error: 'Token verification failed.' });
     }

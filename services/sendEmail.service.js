@@ -1,13 +1,12 @@
 const nodemailer = require('nodemailer');
-const config = require('../config');
 
 const transporter = nodemailer.createTransport({
-    host: config.nodemailer.host,
-    port: config.nodemailer.port,
-    secure: config.nodemailer.secure,
+    host: process.env.NODEMAILER_HOST,
+    port: process.env.NODEMAILER_PORT,
+    secure: process.env.NODEMAILER_SECURE,
     auth: {
-        user: config.nodemailer.user,
-        pass: config.nodemailer.password
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASSWORD
     },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
@@ -17,15 +16,15 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (emailTo, emailSubject, emailBody) => {
     try {
         const mailOptions = {
-            from: config.nodemailer.user,
+            from: process.env.NODEMAILER_USER,
             to: emailTo,
-            subject: `${emailSubject} | ${config.appName} System`,
+            subject: `${emailSubject} | ${process.env.APP_NAME} System`,
             html: `
                 <h1 style='text-align: center;'>${emailSubject}</h1>
                 <hr />
                 ${emailBody}
                 <hr />
-                <p style='text-align: center;'><strong>${config.appName}&reg;</strong> System </br>&copy; ${new Date().getFullYear()} <a href="https://marbust.com" style="font-weight: bold;">Marbust Technology Company</a> - All Rights Reserved</p>
+                <p style='text-align: center;'><strong>${process.env.APP_NAME}&reg;</strong> System </br>&copy; ${new Date().getFullYear()} <a href="https://marbust.com" style="font-weight: bold;">Marbust Technology Company</a> - All Rights Reserved</p>
             `
         };
         const info = await transporter.sendMail(mailOptions);

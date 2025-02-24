@@ -1,11 +1,10 @@
-const config = require('../config');
 const axios = require('axios');
 
 /* Not working (WIP) */
 
 const sendWhatsAppMessage = async (phone, templateName, languageCode = 'es_ES') => {
-    const whatsappApiUrl = config.whatsApp.url;
-    const token = config.whatsApp.keySecret;
+    const whatsappApiUrl = process.env.WHATSAPP_API_URL;
+    const token = process.env.WHATSAPP_API_TOKEN;
 
     const data = {
         messaging_product: 'whatsapp',

@@ -1,4 +1,3 @@
-const config = require('../../config');
 const sendEmail = require('../../services/sendEmail.service');
 
 const Computer = require('../../models/computers/MarbustComputersComputer.model');
