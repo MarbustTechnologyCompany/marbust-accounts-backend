@@ -1,5 +1,5 @@
-const User = require('../models/user.model');
-const USER_STATUS = require('../enums/userStatus.enum');
+const User = require('../modules/users/models/user.model');
+const USER_STATUS = require('../modules/users/enums/userStatus.enum');
 
 // Check if the current role is enable to access from the minimum role required
 const checkAccess = (minimumRole) => async (req, res, next) => {

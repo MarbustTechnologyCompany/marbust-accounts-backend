@@ -6,13 +6,13 @@ const sequelize = require('./util/database.util');
 const authMiddleware = require('./middleware/auth.middleware');
 
 // Import Routes
-const defaultRoutes = require('./routes/default.routes');
-const userRoutes = require('./routes/user.routes');
-const systemRoutes = require('./routes/system.routes');
-const mbrelaxRoutes = require('./routes/mbrelax/healthApp.routes');
-const systemUpdateRoutes = require('./routes/systemUpdate.routes');
-const marbustEducationCoursesRoutes = require('./routes/education/courses.routes');
-const marbustComputersMaintenanceRoutes = require('./routes/computers/maintenance.routes');
+const defaultRoutes = require('./modules/default/routes/default.routes');
+const userRoutes = require('./modules/users/routes/user.routes');
+const systemRoutes = require('./modules/users/routes/system.routes');
+const systemUpdateRoutes = require('./modules/system-updates/routes/systemUpdate.routes');
+const marbustEducationCoursesRoutes = require('./modules/education/routes/courses.routes');
+const marbustComputersMaintenanceRoutes = require('./modules/computers/routes/maintenance.routes');
+const mbrelaxRoutes = require('./modules/mbrelax/routes/mbrelax.routes');
 
 const app = express();
 // Setup Cors
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // App Routes
 app.use(defaultRoutes);
-app.use(userRoutes);
+app.use('/users',userRoutes);
 app.use('/system', authMiddleware, systemRoutes);
 app.use('/system-updates', authMiddleware, systemUpdateRoutes);
 app.use('/mbrelax', mbrelaxRoutes);
