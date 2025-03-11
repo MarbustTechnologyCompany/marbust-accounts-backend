@@ -13,6 +13,7 @@ const systemUpdateRoutes = require('./modules/system-updates/routes/systemUpdate
 const marbustEducationCoursesRoutes = require('./modules/education/routes/courses.routes');
 const marbustComputersMaintenanceRoutes = require('./modules/computers/routes/maintenance.routes');
 const mbrelaxRoutes = require('./modules/mbrelax/routes/mbrelax.routes');
+const paymentsRoutes = require('./modules/payments/routes/marbustPayments.routes');
 
 const app = express();
 // Setup Cors
@@ -28,6 +29,7 @@ app.use('/system-updates', authMiddleware, systemUpdateRoutes);
 app.use('/mbrelax', mbrelaxRoutes);
 app.use('/marbust-education/courses', marbustEducationCoursesRoutes);
 app.use('/marbust-computers/maintenance', authMiddleware, marbustComputersMaintenanceRoutes);
+app.use('/payments', paymentsRoutes);
 
 // Sync Database and start server
 sequelize.sync({ alter: true })
