@@ -8,6 +8,7 @@ Last Update:
 
 - Marbust Education®: Logic for Courses: Actually I can create a new one, get all categories, get a course details by id, get list of all courses.
 - MBRelax®: Logic for Analysis App.
+- Marbust Payments®: Logic for PayPal Calculator: Actually we have 2 endpoints: "{{API}}/payments/paypal-calculator/calculate" & "{{API}}/payments/paypal-calculator/generate-link"
 - Currently Working on Node.JS with Express.js as a REST API including JWT Validation
 --- 
 
