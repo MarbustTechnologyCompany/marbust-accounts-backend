@@ -11,7 +11,7 @@ const userRoutes = require('./modules/users/routes/user.routes');
 const systemRoutes = require('./modules/users/routes/system.routes');
 const systemUpdateRoutes = require('./modules/system-updates/routes/systemUpdate.routes');
 const marbustEducationCoursesRoutes = require('./modules/education/routes/courses.routes');
-const marbustComputersMaintenanceRoutes = require('./modules/computers/routes/maintenance.routes');
+const marbustComputersRoutes = require('./modules/computers/routes/computers.routes');
 const mbrelaxRoutes = require('./modules/mbrelax/routes/mbrelax.routes');
 const paymentsRoutes = require('./modules/payments/routes/marbustPayments.routes');
 
@@ -28,7 +28,7 @@ app.use('/system', authMiddleware, systemRoutes);
 app.use('/system-updates', authMiddleware, systemUpdateRoutes);
 app.use('/mbrelax', mbrelaxRoutes);
 app.use('/marbust-education/courses', marbustEducationCoursesRoutes);
-app.use('/marbust-computers/maintenance', authMiddleware, marbustComputersMaintenanceRoutes);
+app.use('/computers', authMiddleware, marbustComputersRoutes);
 app.use('/payments', paymentsRoutes);
 
 // Sync Database and start server
