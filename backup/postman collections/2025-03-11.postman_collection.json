@@ -1,0 +1,450 @@
+{
+	"info": {
+		"_postman_id": "dc67dad2-1ac0-4650-88dd-49e97b65c34e",
+		"name": "Marbust API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38128171"
+	},
+	"item": [
+		{
+			"name": "Computers",
+			"item": [
+				{
+					"name": "Maintenance",
+					"item": [
+						{
+							"name": "Get My Computers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/computers/maintenance/my-computers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"computers",
+										"maintenance",
+										"my-computers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVJZCI6NCwidW5pcXVlSWQiOiI2M2UwOGNlMjgwYzFiZTg3MjY5NDBjMTUwNjQ2ZmMyNjQ5YTkzMTc0ODM1OTM5ZWM1YjBiNGJiOGFlOGIwMTllIiwiaWF0IjoxNzM4MTE0NTQ4LCJleHAiOjE3MzgxMTgxNDh9.3p1nq9uni1e4T_deBLaNzJZczTvf1LihNhgQ1jko0nI",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Education",
+			"item": [
+				{
+					"name": "Get List of All Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/marbust-education/courses/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marbust-education",
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/marbust-education/courses/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marbust-education",
+								"courses",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course Details by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/marbust-education/courses/details/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marbust-education",
+								"courses",
+								"details",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Course as Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVJZCI6NCwiaWF0IjoxNzI2MDE4OTM5LCJleHAiOjE3MjYwMjI1Mzl9.aLg3eTJnfSmMX3PnodeqsrmcrrnF4Beww8Lj0cQGocI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tricks off Copilot for Developers\",\r\n    \"categoryId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/marbust-education/courses/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"marbust-education",
+								"courses",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MBRelax",
+			"item": [
+				{
+					"name": "Tarjetas",
+					"item": [
+						{
+							"name": "Ciudades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/mbrelax/tarjetas/ciudades",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"mbrelax",
+										"tarjetas",
+										"ciudades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ciudades By Province Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/mbrelax/tarjetas/ciudades/23",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"mbrelax",
+										"tarjetas",
+										"ciudades",
+										"23"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Provincias",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/mbrelax/tarjetas/provincias",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"mbrelax",
+										"tarjetas",
+										"provincias"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Analisis de Estilo de Vida",
+					"item": [
+						{
+							"name": "Obtener Preguntas segun Genero",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/mbrelax/questions/male",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"mbrelax",
+										"questions",
+										"male"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener Todos los Sistemas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/mbrelax/systems",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"mbrelax",
+										"systems"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "PayPal Calculator",
+					"item": [
+						{
+							"name": "Calculate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"preValue\": 100\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API}}/payments/paypal-calculator/calculate",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"payments",
+										"paypal-calculator",
+										"calculate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Calculate & Generate Link",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"preValue\": 100,\r\n    \"paypalMe\": \"MarbustTechnology\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API}}/payments/paypal-calculator/generate-link",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"payments",
+										"paypal-calculator",
+										"generate-link"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Forgot Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"hire-me@marantbq.dev\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}request-password-reset",
+					"host": [
+						"{{API}}request-password-reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"hire-me@marantbq.dev\",\r\n    \"password\": \"jqqqo7gg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/users/login",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "API-LOCAL",
+			"value": "http://localhost:3000",
+			"type": "default"
+		},
+		{
+			"key": "API",
+			"value": "localhost:3000",
+			"type": "default"
+		}
+	]
+}
