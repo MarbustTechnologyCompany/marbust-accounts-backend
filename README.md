@@ -12,4 +12,5 @@ Last Update:
 - Currently Working on Node.JS with Express.js as a REST API including JWT Validation
 --- 
 
-Licensed by: Marbust Technology Company® - All Rights Reserved | You're able to use, modify, but always giving credit to the author: Marco Antonio Bustillos Quiroz (Marbust CEO) https://marantbq.dev
+Licensed by: Marbust Technology Company® - All Rights Reserved | You're able to use, modify, but always giving credit to the authors:
+Marco Antonio Bustillos Quiroz (MarAntBQ) https://marantbq.dev / 
